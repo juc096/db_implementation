@@ -1,0 +1,9 @@
+within "root" first "sammy" count()
+within root within sammy get
+within "root" within "sammy" after online get()
+within root within sammy within "followers" get()
+within root within "sammy" before "online"  get("username")
+within root within "items" get("key1")
+within root within "list" all(*) avg()
+within root within "list" all(*) sum()
+within root within "list" nth(2) get()

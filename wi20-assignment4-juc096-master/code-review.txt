@@ -1,0 +1,13 @@
+JSONParser is a class that takes in a file input (a file in json format) and parses the elements such that it can be stored into a data model class. The JSONParser class itself, however, does not dictate how the data model should be structured. That responsibility belongs to the JSONListener object. The parsing function requires a JSONListener object to "listen" and act accordingly to the elements that are being parsed.
+
+The type of elements is dictated by the character type of the file:
+
+	* '{' denotes an object to be created, '}' denotes the end of this object
+	* '[' denotes an array to be created, ']' denotes the end of this array
+	* '"' denotes the start of a constant string value, '"' denotes the end of this value.
+
+For example, when the parser encounters the '{' character, it will know that this is the beginning of an object container, and will ask the JSONListener to handle this container opening, through the "handleOpenContainer" function. 
+
+It will then continually parse the file by obtaining the inner elements of this object container and telling the JSONListener that there are more elements to add into this container.
+
+When it encounters the '}' character, it knows this object has no more elements inside, and will ask the JSONListener to handle the closing of the container.
